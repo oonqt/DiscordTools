@@ -37,9 +37,10 @@ function startApp() {
 ipcMain.on("authenticate", (_, token) => {
     client
         .login(token)
-        .then(() => {
-            mainWindow.loadFile(path.join(__dirname, "static", "main.html"));
+        .then(async () => {
             mainWindow.setSize(750, 500);
+            await mainWindow.loadFile(path.join(__dirname, "static", "main.html"));
+            mainWindow.webContents.send("userdata", { tag: client.user.tag, avatar: client.user.displayAvatarURL });
         })
         .catch(err => {
             logger.log(err);

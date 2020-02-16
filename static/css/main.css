@@ -1,0 +1,12 @@
+#userAvatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#userTag {
+    margin-top: 5px;
+    margin-left: 5px;
+}
